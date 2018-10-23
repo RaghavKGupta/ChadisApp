@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">ChadisApp</string>
+    <string name="login">Login</string>
+    <string name="RememberMe">Remember Me</string>
+    <string name="RegisterRedirect">Not a member? Click to register</string>
+
+
+</resources>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ChadisApp</string>
+    <string name="login">iniciar sesión</string>
+    <string name="RememberMe">Recuérdame</string>
+    <string name="RegisterRedirect">¿No es un miembro? Haga clic para registrarse</string>
+</resources>
