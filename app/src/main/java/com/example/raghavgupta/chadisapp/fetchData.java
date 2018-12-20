@@ -1,7 +1,9 @@
 package com.example.raghavgupta.chadisapp;
 
 import android.os.AsyncTask;
+import android.os.Build;
 import android.support.annotation.MainThread;
+import android.support.annotation.RequiresApi;
 import android.widget.TextView;
 
 import java.io.BufferedReader;
@@ -16,6 +18,7 @@ import java.nio.charset.Charset;
 import static android.support.v4.content.ContextCompat.startActivity;
 
 
+@RequiresApi(api = Build.VERSION_CODES.CUPCAKE)
 public class fetchData extends AsyncTask <String[], Void,Void>
 {
     public AsyncResponse delegate = null;
@@ -26,6 +29,7 @@ public class fetchData extends AsyncTask <String[], Void,Void>
         delegate = asyncResponse;//Assigning call back interfacethrough constructor
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.GINGERBREAD)
     public StringBuilder doInBackground(String[] args) throws Exception{
             URL url = new URL("https://dev.chadis.com/cschultz-chadis/respondent/api/login.do");
             URLConnection c = url.openConnection();
@@ -57,7 +61,8 @@ public class fetchData extends AsyncTask <String[], Void,Void>
             // Configure network info
             conn.setConnectTimeout(5000); // 5s connection timeout
             conn.setReadTimeout(10000); // 10s read timeout
-            conn.setInstanceFollowRedirects(false); // No reason to follow any HTTP redirection
+            conn.setInstanceFollowRedirects(false);
+            conn.setRequestProperty("Cookie","JSESSIONID=");// No reason to follow any HTTP redirection
             conn.setDoOutput(true); // We expect to write data to the server
             conn.setDoInput(true);  // We expect to read input from the server
 
@@ -123,6 +128,7 @@ public class fetchData extends AsyncTask <String[], Void,Void>
         delegate.processFinishLogin(getResult());
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.GINGERBREAD)
     @Override
     protected Void doInBackground(String[]... strings) {
         final String[] myArray= new String[2];

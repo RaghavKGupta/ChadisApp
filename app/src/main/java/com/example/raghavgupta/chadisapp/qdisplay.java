@@ -8,6 +8,7 @@ import android.provider.DocumentsContract;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
+import android.text.method.ScrollingMovementMethod;
 import android.util.JsonReader;
 import android.util.Log;
 import android.view.View;
@@ -102,6 +103,7 @@ public class qdisplay  extends AppCompatActivity {
             if(intro.isEmpty()){
                 intro = ar.getString("description").replaceAll("(\\<[^>]*>)","");
             }
+            tv.setMovementMethod(new ScrollingMovementMethod());
             tv.setText(intro);
 
         } catch (Exception e) {

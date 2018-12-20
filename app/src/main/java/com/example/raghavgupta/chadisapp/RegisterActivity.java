@@ -1,5 +1,7 @@
 package com.example.raghavgupta.chadisapp;
 
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -25,6 +27,7 @@ public class RegisterActivity extends AppCompatActivity {
         registerButton = findViewById(R.id.btnRegister);
 
         registerButton.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.GINGERBREAD)
             @Override
             public void onClick(View v) {
                 if(validRegister()){
@@ -34,6 +37,7 @@ public class RegisterActivity extends AppCompatActivity {
         });
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.GINGERBREAD)
     private Boolean validRegister(){
         Boolean result = false;
         String uID = userID.getText().toString();

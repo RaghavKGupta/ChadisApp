@@ -1,7 +1,9 @@
 package com.example.raghavgupta.chadisapp;
 
 import android.os.AsyncTask;
+import android.os.Build;
 import android.support.annotation.MainThread;
+import android.support.annotation.RequiresApi;
 import android.widget.TextView;
 
 import java.io.BufferedReader;
@@ -16,6 +18,7 @@ import java.nio.charset.Charset;
 public class fetchQuest  {
     static StringBuilder response;
     public static String sessionID;
+    @RequiresApi(api = Build.VERSION_CODES.GINGERBREAD)
     public static StringBuilder main(String[] args) throws Exception {
         URL url = new URL("https://dev.chadis.com/cschultz-chadis/respondent/api/patient/questionnaires.do?");
         URLConnection c = url.openConnection();

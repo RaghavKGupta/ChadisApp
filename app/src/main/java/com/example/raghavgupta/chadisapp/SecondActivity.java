@@ -1,7 +1,9 @@
 package com.example.raghavgupta.chadisapp;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.os.StrictMode;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
@@ -25,6 +27,7 @@ public class SecondActivity extends AppCompatActivity {
     public static TreeMap<String, Object> nameMap = new TreeMap<String, Object>();
     public static TreeMap<Object, Object> dobMap = new TreeMap<Object, Object>();
 
+    @RequiresApi(api = Build.VERSION_CODES.GINGERBREAD)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

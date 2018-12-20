@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -105,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
                 alert.setTitle("Chadis on the web");
 
                 WebView wv = new WebView(context);
-                wv.loadUrl("https://dev.chadis.com/cschultz-chadis/auth/login.do");
+                wv.loadUrl("https://dev.chadis.com/cschultz-chadis/auth/login.do;jsessionid=");
                 wv.setWebViewClient(new WebViewClient() {
                     @Override
                     public boolean shouldOverrideUrlLoading(WebView view, String url) {
@@ -127,6 +129,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         loginButton.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.CUPCAKE)
             @Override
             public void onClick(View v) {
                 fd = (fetchData) new fetchData(new AsyncResponse() {
